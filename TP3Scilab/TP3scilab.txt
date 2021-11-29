@@ -1,0 +1,34 @@
+//Exercice2:
+//1)
+A = rand(10,10)
+exec("Bureau/usolve.sci",1)
+exec("Bureau/lsolve.sci",1)
+
+//2)
+x=lsolve(tril(A),b)
+tril(A)\b
+y = usolve(triu(A),b)
+triu(A)\b
+
+//Exercice3:
+//1)
+exec("Bureau/gausskij3b.sci",1)
+//2)
+gausskij3b(rand(10,10),rand(10,1))
+gausskij3b(rand(5,5),rand(100,1))
+gausskij3b(rand(20,20),rand(20,1))
+
+//Exercice4:
+//1)
+A = rand(10,10)
+exec("Bureau/mylu3b.sci", 1)
+
+//2)
+mylu3b(A);
+mylu3b(rand(20,20))
+
+//3)
+exec("Bureau/mylu3b.sci", 1)
+mylu1b(A);
+
+//4)
