@@ -1,18 +1,49 @@
 //Exercice2:
 //1)
 A = rand(10,10)
-exec("Bureau/usolve.sci",1)
-exec("Bureau/lsolve.sci",1)
+b = rand(10,1)
+exec("src/usolve.sci",1)
+exec("src/lsolve.sci",1)
 
 //2)
-x=lsolve(tril(A),b)
-tril(A)\b
-y = usolve(triu(A),b)
-triu(A)\b
+n = 10
+tic()
+for i = 1 : 10
+	x=lsolve(tril(A),b)
+	x2=tril(A)\b
+	y = usolve(triu(A),b)
+	y2=triu(A)\b
+end
+t = toc()/10
+
+n = 100
+A = rand(n,n);
+b = rand(n,1);
+tic()
+for i = 1 : 10
+	x=lsolve(tril(A),b);
+	x2=tril(A)\b;
+	y = usolve(triu(A),b);
+	y2=triu(A)\b;
+end
+t2 = toc()/10
+
+
+n = 500
+A = rand(n,n);
+b = rand(n,1);
+tic()
+for i = 1 : 10
+	x=lsolve(tril(A),b);
+	x2=tril(A)\b;
+	y = usolve(triu(A),b);
+	x2=triu(A)\b;
+end
+t3 = toc()/10
 
 //Exercice3:
 //1)
-exec("Bureau/gausskij3b.sci",1)
+exec("src/gausskij3b.sci",1)
 //2)
 gausskij3b(rand(10,10),rand(10,1))
 gausskij3b(rand(5,5),rand(100,1))
@@ -21,7 +52,7 @@ gausskij3b(rand(20,20),rand(20,1))
 //Exercice4:
 //1)
 A = rand(10,10)
-exec("Bureau/mylu3b.sci", 1)
+exec("src/mylu3b.sci", 1)
 
 //2)
 mylu3b(A);
