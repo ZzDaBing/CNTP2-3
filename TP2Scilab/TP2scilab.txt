@@ -1,0 +1,128 @@
+//Exercice 6:
+//1)
+x = [1:4]
+
+//2)
+y = [4;3;2;1]
+
+//3)
+z = x' + y
+s = x * y
+
+//4)
+size(x)
+size(y)
+
+//5)
+norm2 = norm(x)
+
+//6)
+A = [1:3;4:6;7:9;10:12]
+
+//7)
+A'
+
+//8)
+B = [10:13;14:17;18:21]
+C = A * B
+
+D = [10:12;13:15;16:18;19:21]
+E = A + D
+
+//9)
+condA = cond(A)
+
+//Exercice 7:
+//1)
+A = rand(3,3)
+
+//2)
+xex = rand(3,1)
+
+//3)
+b = A * xex
+
+//4)
+xSol = A\b
+
+//5)
+errAvt = norm(xex - xSol) / norm(xex)
+relres = norm(b - A * xSol) / (norm(A) * norm(xSol))
+//L'erreur est en 10^(-16) ce qui veut dire que l'erreur est (négligeable?) pour une taille n = 3
+
+//6)
+//n = 100
+n = 100
+A = rand(n,n);
+xex = rand(n,1);
+b = A * xex;
+xSol = A\b;
+errAvt = norm(xex - xSol) / norm(xex)
+relres = norm(b - A * xSol) / (norm(A) * norm(xSol))
+
+//n = 1000
+n = 1000
+A = rand(n,n);
+xex = rand(n,1);
+b = A * xex;
+xSol = A\b;
+errAvt = norm(xex - xSol) / norm(xex)
+relres = norm(b - A * xSol) / (norm(A) * norm(xSol))
+
+//n = 10000
+n = 10000
+A = rand(n,n);
+xex = rand(n,1);
+b = A * xex;
+xSol = A\b;
+errAvt = norm(xex - xSol) / norm(xex)
+relres = norm(b - A * xSol) / (norm(A) * norm(xSol))
+
+//On remarque que plus n augmente, plus ca prend du temps parce qu'il faut un espace de stockage bien plus //important étant donné que la complexité de l'algorithme se calcule un O(n^3), et plus l'erreur augmente.
+//Pour n = 10000, le calcul est très long car il prend trop d'espace mémoire.
+
+//Exercice 8:
+
+//1)
+A = rand(100,100)
+B = rand(100,100)
+//3 boucles
+exec("src/matmat3b.sci" , 1)
+[C,t] = matmat3b(A,B)
+
+//2)
+//2 boucles
+exec("src/matmat2b.sci" , 1)
+[C,t] = matmat2b(A,B)
+//1 boucle
+exec("src/matmat1b.sci" , 1)
+[C,t] = matmat1b(A,B)
+
+A = rand(300,300);
+B = rand(300,300);
+//3 boucles
+exec("Bureau/matmat3b.sci" , 1)
+[C,t] = matmat3b(A,B)
+//2 boucles
+exec("Bureau/matmat2b.sci" , 1)
+[C,t] = matmat2b(A,B)
+//1 boucle
+exec("Bureau/matmat1b.sci" , 1)
+[C,t] = matmat1b(A,B)
+
+A = rand(50,10);
+B = rand(10,50);
+//3 boucles
+exec("src/matmat3b.sci" , 1)
+[C,t] = matmat3b(A,B)
+//2 boucles
+exec("src/matmat2b.sci" , 1)
+[C,t] = matmat2b(A,B)
+//1 boucle
+exec("src/matmat1b.sci" , 1)
+[C,t] = matmat1b(A,B)
+
+//4)
+//Ces résultats montrent que le temps de l'algorithme à 1 boucle est tant fois plus rapide que celui à 2 boucles qui est lui même
+//tant fois fois plus rapide que l'algorithme à 3 boucles.
+//Cela s'explique par la complexité de l'algorithme qui augmente le temps de calcul quand la complexité augmente.

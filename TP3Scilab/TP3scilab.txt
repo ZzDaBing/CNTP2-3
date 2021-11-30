@@ -1,0 +1,188 @@
+//Exercice2:
+//1)
+A = rand(10,10);
+b = rand(10,1);
+exec("src/usolve.sci",1)
+exec("src/lsolve.sci",1)
+
+//2)
+n = 10
+tic()
+for i = 1 : 10
+	x=lsolve(tril(A),b);
+end
+t1x = toc()/10
+
+n = 50
+A = rand(n,n);
+b = rand(n,1);
+tic()
+for i = 1 : 10
+	x=lsolve(tril(A),b);
+end
+t2x = toc()/10
+
+n = 100
+A = rand(n,n);
+b = rand(n,1);
+tic()
+for i = 1 : 10
+	x=lsolve(tril(A),b);
+end
+t3x = toc()/10
+
+n = 10
+tic()
+for i = 1 : 10
+	x2=tril(A)\b);
+end
+t4x = toc()/10
+
+n = 50
+A = rand(n,n);
+b = rand(n,1);
+tic()
+for i = 1 : 10
+	x2=tril(A)\b);
+end
+t5x = toc()/10
+
+n = 100
+A = rand(n,n);
+b = rand(n,1);
+tic()
+for i = 1 : 10
+	x2=tril(A)\b);
+end
+t6x = toc()/10
+
+n = 10
+tic()
+for i = 1 : 10
+	y = usolve(triu(A),b);
+end
+t1y = toc()/10
+
+n = 50
+A = rand(n,n);
+b = rand(n,1);
+tic()
+for i = 1 : 10
+	y = usolve(triu(A),b);
+end
+t2y = toc()/10
+
+n = 100
+A = rand(n,n);
+b = rand(n,1);
+tic()
+for i = 1 : 10
+	y = usolve(triu(A),b);
+end
+t3y = toc()/10
+
+n = 10
+tic()
+for i = 1 : 10
+	y2=triu(A)\b;
+end
+t4y = toc()/10
+
+n = 50
+A = rand(n,n);
+b = rand(n,1);
+tic()
+for i = 1 : 10
+	y2=triu(A)\b;
+end
+t5y = toc()/10
+
+n = 100
+A = rand(n,n);
+b = rand(n,1);
+tic()
+for i = 1 : 10
+	x2=triu(A)\b;
+end
+t6y = toc()/10
+//xdata = linspace(1,100,200);
+//ydata = linspace(1,100,200);
+//plot(xdata,ydata)
+
+
+//Exercice3:
+//1)
+exec("src/gausskij3b.sci",1)
+//2)
+n=10
+tic()
+for i = 1 : 10
+	gausskij3b(rand(n,n),rand(n,1));
+end
+t1 = toc()/10
+
+n=50
+tic()
+for i = 1 : 10
+	gausskij3b(rand(n,n),rand(n,1));
+end
+t2 = toc()/10
+
+n=100
+tic()
+for i = 1 : 10
+	gausskij3b(rand(n,n),rand(n,1));
+end
+t3 = toc()/10
+
+//Exercice4:
+//1)
+A = rand(10,10)
+exec("src/mylu3b.sci", 1)
+
+//2)
+n=10
+tic()
+for i = 1 : 10
+	mylu3b(A);
+end
+t1 = toc()/10
+
+n=50
+tic()
+for i = 1 : 10
+	mylu3b(rand(n,n));
+end
+t2 = toc()/10
+
+n=100
+tic()
+for i = 1 : 10
+	mylu3b(rand(n,n));
+end
+t3 = toc()/10
+
+//3)
+exec("src/mylu3b.sci", 1)
+n=10
+tic()
+for i = 1 : 10
+	mylu1b(rand(n,n));
+end
+t4 = toc()/10
+
+n=50
+tic()
+for i = 1 : 10
+	mylu1b(rand(n,n));
+end
+t5 = toc()/10 
+
+n=100
+tic()
+for i = 1 : 10
+	mylu1b(rand(n,n));
+end
+t6 = toc()/10
+
+//4)
